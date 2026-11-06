@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>منصة التعليم الذكي</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="login-container">
+        <h1>مرحباً بك في منصتنا التعليمية</h1>
+        <form id="loginForm">
+            <input type="text" id="name" placeholder="الاسم الكامل" required>
+            <input type="number" id="age" placeholder="العمر" required>
+            <select id="level" required>
+                <option value="">اختر المستوى الدراسي</option>
+                <option value="1bac">الأولى باكالوريا</option>
+                <option value="2bac">الثانية باكالوريا</option>
+                <option value="3bac">الثالثة إعدادي</option>
+            </select>
+            <input type="text" id="studentCode" placeholder="كود التلميذ (اختياري)">
+            <button type="submit">تسجيل الدخول</button>
+        </form>
+    </div>
+
+    <!-- الشاشة الرئيسية (مخفية في البداية) -->
+    <div id="mainScreen" class="hidden">
+        <header>
+            <h2 id="welcomeMessage"></h2>
+            <button id="logoutBtn">تسجيل الخروج</button>
+        </header>
+        
+        <h3>اختر المادة الدراسية:</h3>
+        <div class="subjects-grid">
+            <div class="subject-card" onclick="openSubject('physics')">الفيزياء</div>
+            <div class="subject-card" onclick="openSubject('chemistry')">الكيمياء</div>
+            <div class="subject-card" onclick="openSubject('math')">الرياضيات</div>
+            <div class="subject-card" onclick="openSubject('life_sciences')">علوم الحياة والأرض</div>
+        </div>
+
+        <!-- قسم الدروس والتمارين -->
+        <div id="lessonArea" class="hidden">
+            <h2 id="subjectTitle"></h2>
+            <div class="options">
+                <button onclick="loadContent('lessons')">الدروس</button>
+                <button onclick="loadContent('exercises')">التمارين والتصحيح</button>
+                <button onclick="loadContent('exams')">الامتحانات</button>
+            </div>
+            <div id="contentDisplay">
+                <!-- هنا سيتم عرض الفيديوهات أو النصوص -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
